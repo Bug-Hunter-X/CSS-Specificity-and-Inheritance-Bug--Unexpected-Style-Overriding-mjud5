@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance.  The `.container` class styles are unexpectedly overridden by the `h1` element styles, even though `.container` has higher specificity.
+
+```css
+.container {
+  color: blue;
+}
+
+h1 {
+  color: red;
+}
+
+.container h1 {
+  color: green; /* This rule is intended to override both, but doesn't fully */
+}
+```
+
+In this example, we expect the `<h1>` element inside `.container` to be green. However, sometimes the `<h1>` element’s `color: red` style might unexpectedly take precedence.
