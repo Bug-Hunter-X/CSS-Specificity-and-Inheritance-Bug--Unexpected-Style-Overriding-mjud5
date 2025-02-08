@@ -1,0 +1,40 @@
+The solution involves understanding the intricacies of CSS specificity.  While the `.container h1` selector seems highly specific, it's often not enough to override styles inherited from parent elements and higher-level selectors.
+
+The solution involves either increasing the specificity of the `.container h1` rule or using the `!important` flag (generally discouraged for maintainability).  A more robust solution often involves restructuring the CSS to avoid such conflicts.
+
+Here is improved CSS code:
+
+```css
+.container {
+  color: blue;
+}
+
+h1 {
+  color: red;
+}
+
+.container h1 {
+  color: green !important; /* Use !important as last resort */
+}
+```
+
+**Better Approach (Without `!important`):**
+
+It's always recommended to avoid using `!important`. A better approach would be to refactor the CSS to avoid the conflict in the first place. This might involve being more specific in selectors or making structural changes to your HTML or CSS.
+
+Example:
+
+```css
+.container {
+  color: blue;
+}
+
+.container h1 {
+  color: green;
+}
+
+/* or, if you need to keep the h1 selector general */
+.container h1, .container h2, .container h3{
+  color: green;
+}
+```
